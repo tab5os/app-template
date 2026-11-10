@@ -48,7 +48,7 @@ The workflow refuses a tag that doesn't match the manifest's version, so a relea
 
 **Signing (optional).** Make a key with `t5 keygen me.pem`, keep it private, and add the file's contents as a repository secret named `T5_SIGNING_KEY`. CI then signs every package, and the package names your key as its publisher. Locally, run `./build.sh --sign me.pem`. `*.pem` files are in `.gitignore`.
 
-**A newer SDK.** Change `tab5os-sdk.txt` to the release you want. Because API level 1 is frozen, an app built for level 1 runs on every later OS, so you only need a newer SDK for functions added after level 1. If a new SDK needs a different ESP-IDF version, change the `container:` image to match.
+**A newer SDK.** Change `tab5os-sdk.txt` to the release you want. Because API level 1 is frozen, an app built for level 1 runs on every later OS, so you only need a newer SDK for functions added after level 1. If a new SDK needs a different ESP-IDF version, change the `container:` image to match. (The template itself follows each Tab5 OS release through `.github/workflows/sync-sdk.yml`. That workflow does nothing outside tab5os/app-template, so you can delete it.)
 
 ## License
 
